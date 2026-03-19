@@ -121,6 +121,17 @@ function fallbackToBackgroundFetch(absoluteUrl, resolve) {
 
 async function extractElement(element) {
     const clone = element.cloneNode(true);
+    // 针对最外层的根节点，如果它的宽高依赖于原页面的父容器（比如 width: 100%），脱离后会导致坍缩。
+    // 我们强制将计算出的绝对宽高锁定在最外层克隆节点上。
+    const rootComputedStyle = window.getComputedStyle(element);
+    const boxSizing = rootComputedStyle.getPropertyValue('box-sizing');
+    clone.style.width = rootComputedStyle.getPropertyValue('width');
+    clone.style.height = rootComputedStyle.getPropertyValue('height');
+    if (boxSizing) clone.style.boxSizing = boxSizing;
+    
+    // 如果根元素有 margin auto 居中，尽量保留
+    clone.style.margin = rootComputedStyle.getPropertyValue('margin');
+
     const originalNodes = [element, ...element.querySelectorAll('*')];
     const cloneNodes = [clone, ...clone.querySelectorAll('*')];
 
@@ -194,6 +205,19 @@ async function extractElement(element) {
                     }
                 }
                 cloned.style.backgroundImage = newBgImage;
+                
+                // 为了防止背景变形，显式保留关键的背景相关样式属性
+                const bgSize = computedStyle.getPropertyValue('background-size');
+                if (bgSize) cloned.style.backgroundSize = bgSize;
+                
+                const bgPosition = computedStyle.getPropertyValue('background-position');
+                if (bgPosition) cloned.style.backgroundPosition = bgPosition;
+                
+                const bgRepeat = computedStyle.getPropertyValue('background-repeat');
+                if (bgRepeat) cloned.style.backgroundRepeat = bgRepeat;
+                
+                const bgAttachment = computedStyle.getPropertyValue('background-attachment');
+                if (bgAttachment) cloned.style.backgroundAttachment = bgAttachment;
             }
         }
 
