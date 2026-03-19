@@ -1,0 +1,22 @@
+.element-export-highlight {
+    outline: 3px dashed #409EFF !important;
+    outline-offset: -3px !important;
+    cursor: crosshair !important;
+    background-color: rgba(64, 158, 255, 0.2) !important;
+    transition: all 0.2s !important;
+}
+
+#element-export-loading {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    background: #333 !important;
+    color: #fff !important;
+    padding: 12px 24px !important;
+    border-radius: 4px !important;
+    z-index: 2147483647 !important;
+    font-family: system-ui, sans-serif !important;
+    font-size: 14px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+    pointer-events: none !important;
+}

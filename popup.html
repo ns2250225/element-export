@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>提取网页元素</title>
+  <style>
+    body {
+      width: 240px;
+      padding: 16px;
+      font-family: system-ui, -apple-system, sans-serif;
+      text-align: center;
+      margin: 0;
+    }
+    button {
+      background-color: #409EFF;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      width: 100%;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #66b1ff;
+    }
+    p {
+      font-size: 12px;
+      color: #666;
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <button id="startBtn">开始选择元素</button>
+  <p>点击按钮后，鼠标悬停在页面元素上会高亮显示，点击即可将其连同样式资源导出为离线HTML。</p>
+  <script src="popup.js"></script>
+</body>
+</html>

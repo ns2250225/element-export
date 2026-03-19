@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "网页元素离线提取器",
+  "version": "1.0",
+  "description": "高亮选择网页中的任意元素，并将其包含的所有HTML、CSS、图片、视频、SVG及JS脚本一键导出为离线HTML文件。",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "提取网页元素",
+    "default_icon": {
+      "16": "image.jpg",
+      "32": "image.jpg",
+      "48": "image.jpg",
+      "128": "image.jpg"
+    }
+  },
+  "icons": {
+    "16": "image.jpg",
+    "32": "image.jpg",
+    "48": "image.jpg",
+    "128": "image.jpg"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["content.css"],
+      "js": ["content.js"]
+    }
+  ]
+}
