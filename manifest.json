@@ -9,17 +9,17 @@
     "default_popup": "popup.html",
     "default_title": "提取网页元素",
     "default_icon": {
-      "16": "image.jpg",
-      "32": "image.jpg",
-      "48": "image.jpg",
-      "128": "image.jpg"
+      "16": "image.png",
+      "32": "image.png",
+      "48": "image.png",
+      "128": "image.png"
     }
   },
   "icons": {
-    "16": "image.jpg",
-    "32": "image.jpg",
-    "48": "image.jpg",
-    "128": "image.jpg"
+    "16": "image.png",
+    "32": "image.png",
+    "48": "image.png",
+    "128": "image.png"
   },
   "background": {
     "service_worker": "background.js"
